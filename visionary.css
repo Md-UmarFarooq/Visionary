@@ -1,0 +1,328 @@
+*{
+    margin: 0vh;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+}
+
+body{
+    background:#f9fafb;
+}
+
+body.dark{
+    background:	#1f1f1f;
+}
+
+.root{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.header {
+  min-height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem 2vw;
+  background-color: #ffffff;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark mode */
+body.dark .header {
+  background-color: #2a2a2a;
+  color: #f3f4f6;
+  border-bottom: 1px solid #3f3f46;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.header.dark{
+    background-color: #2a2a2a;
+    color: #f3f4f6;
+}
+
+.header-mode-container{
+  display: flex;
+  align-items: center;  /* vertical center */
+  gap: 0.5rem;          /* space between h3 and select */
+  user-select: none;
+  margin-left: 2vw;
+}
+
+.header>h3{
+    padding: 0.4rem 0.6rem;
+}
+
+.header-mode-value {
+  padding: 0.4rem 0.6rem;
+  border: 1.5px solid #d1d5db;  /* light gray border */
+  border-radius: 6px;
+  background-color: #fff;
+  color: #111827;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  min-width: 160px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-mode-value:hover,
+.header-mode-value:focus {
+  border-color: #2563eb;  /* blue highlight */
+  outline: none;
+  background-color: #f0f9ff;
+  color: #1e40af;
+}
+
+/* Dark mode */
+body.dark .header-mode-value {
+  background-color: #3a3a3a;
+  border-color: #555555;
+  color: #e0e0e0;
+}
+
+body.dark .header-mode-value:hover,
+body.dark .header-mode-value:focus {
+  background-color: #2563eb;  /* blue highlight in dark */
+  border-color: #2563eb;
+  color: white;
+}
+
+
+.header-title {
+  font-weight: 600;         
+  color: inherit;           
+  letter-spacing: 0.5px;    
+  user-select: none;
+  transition: color 0.3s ease;
+  margin-left: 2vw;
+}
+
+.header-theme {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: 2vw;
+  margin-left: 2vw;
+}
+
+.header-theme-button {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  border-radius: 15px;
+  border: 1.5px solid #888;
+  background-color: #e2e8f0; /* light grey track */
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  padding: 0;
+}
+
+.header-theme-button::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 5px rgb(0 0 0 / 0.1);
+  transition: left 0.3s ease;
+}
+
+/* Dark mode active styles */
+/* When dark mode active, add class "dark-mode" to button */
+.header-theme-button.dark-mode {
+  background-color: #374151; /* dark grey track */
+  border-color: #60a5fa; /* blue border */
+}
+
+.header-theme-button.dark-mode::before {
+  left: 26px; /* knob moves right */
+}
+
+
+
+
+
+.main-content {
+  max-width: 700px;
+  width: 95%;
+  min-width: 320px; /* prevents too narrow on small screens */
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 75vh; /* makes the container tall but within viewport */
+  overflow: hidden; /* to control inner scrolling */
+}
+
+/* Dark mode main-content */
+body.dark .main-content {
+  background-color: #1e1e1e;
+  color: #ddd;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+/* Image Upload Container */
+.image-upload-container {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  color: #555;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.image-upload-container:hover {
+  border-color: #0078d7;
+  color: #0078d7;
+}
+
+/* Dark mode for upload container */
+body.dark .image-upload-container {
+  border-color: #555;
+  color: #aaa;
+}
+
+body.dark .image-upload-container:hover {
+  border-color: #3399ff;
+  color: #3399ff;
+}
+
+/* Hide default file input */
+#image-upload {
+  display: none;
+}
+
+/* Image Preview */
+.image-preview {
+  margin-top: 1rem;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Question Input Container */
+.question-input-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Question Input */
+#question-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+#question-input:focus {
+  outline: none;
+  border-color: #0078d7;
+}
+
+/* Dark mode question input */
+body.dark #question-input {
+  background-color: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+body.dark #question-input:focus {
+  border-color: #3399ff;
+}
+
+/* Ask Button */
+#ask-button {
+  padding: 0.8rem 1.8rem;
+  background-color: #0078d7;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#ask-button:hover {
+  background-color: #005fa3;
+}
+
+/* Dark mode ask button */
+body.dark #ask-button {
+  background-color: #3399ff;
+  color: #222;
+}
+
+body.dark #ask-button:hover {
+  background-color: #1a75ff;
+}
+
+/* Response Container */
+.response-container {
+  min-height: 150px;
+  max-height: 50vh; /* max height to prevent growing too tall */
+  overflow-y: auto; /* enable vertical scroll if content too long */
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  color: #111;
+  font-size: 1rem;
+  line-height: 1.4;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode response container */
+body.dark .response-container {
+  background-color: #2a2a2a;
+  color: #ddd;
+  box-shadow: inset 0 0 6px rgba(255,255,255,0.1);
+}
+
+.image-preview {
+  margin-top: 1rem;
+  max-width: 100%;      /* Responsive width */
+  max-height: 250px;    /* Limit max height */
+  object-fit: contain;  /* Maintain aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: none;        /* Hidden initially, shown via JS */
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width:440px){
+    .header{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2vh;
+        width: 100%;
+    }
+    
+}
+
+@media (min-width: 1200px) {
+  .main-content {
+    max-width: 900px;  /* wider on big screens */
+  }
+}

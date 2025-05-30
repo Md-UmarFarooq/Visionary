@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visionary</title>
+  <link rel="stylesheet" href="visionary.css" />
+</head>
+<body>
+  <div class="root">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-title">Vision-QA Assistant</div>
+
+      <div class="header-mode-container">
+        <h3>Mode</h3>
+        <select name="mode" class="header-mode-value">
+          <option value="auto">Auto Detect</option>
+          <option value="chart">Chart Analysis</option>
+          <option value="photo">Photo/Object Recognition</option>
+          <option value="screenshot">Screenshot UI Reading</option>
+          <option value="document">Text/Image in Documents</option>
+        </select>
+      </div>
+
+      <div class="header-theme">
+        <h3 class="header-theme-value">Light</h3>
+        <button class="header-theme-button" aria-label="Toggle Dark Mode"></button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Image Upload Section -->
+      <div class="image-upload-container">
+        <label for="image-upload" class="upload-label">Upload Image</label>
+        <input type="file" id="image-upload" accept="image/*" />
+        <img class="image-preview" alt="Image Preview" />
+      </div>
+
+      <!-- Question Input Section -->
+      <div class="question-input-container">
+        <input type="text" id="question-input" placeholder="Ask your question about the image..." />
+        <button id="ask-button">Ask</button>
+      </div>
+
+      <!-- Response Output -->
+      <div class="response-container">
+        <p id="response-output">Your answer will appear here...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="visionary.js"></script>
+</body>
+</html>
